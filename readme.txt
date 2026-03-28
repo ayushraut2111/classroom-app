@@ -2,7 +2,7 @@ this project includes
 1. fastapi
 2. sqlalchemy - orm
 3. pydantic
-4. uvicorn - for running project asynchronously
+4. uvicorn - for running project asynchronously (uvicorn main:app --reload - to run project)
 5. alembic - for managing migrations
 
 
