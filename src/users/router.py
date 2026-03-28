@@ -13,10 +13,8 @@ user_router = APIRouter()
 
 @user_router.get("/", response_model=GetStudentSchema)
 def get_all_students_api(db: Session = Depends(get_db)):
-    data = {
-        "user_data": get_all_students(db)
-    }
-    return data
+    
+    return get_all_students(db)
 
 
 router.include_router(
