@@ -3,7 +3,7 @@ from users.schemas import GetStudentSchema
 from core.database import get_db
 from sqlalchemy.orm import Session
 
-from users.views import get_all_students
+from users.utils import get_all_students
 
 router=APIRouter()
 
@@ -11,10 +11,15 @@ router=APIRouter()
 user_router = APIRouter()
 
 
-@user_router.get("/", response_model=GetStudentSchema)
+@user_router.get("/", response_model=GetStudentSchema, status_code=200)
 def get_all_students_api(db: Session = Depends(get_db)):
-    
-    return get_all_students(db)
+    students = get_all_students(db)
+    data = {
+        "user_data": students,
+        "total": len(students),
+        "message": "students fetched sucessfully"
+    }
+    return data
 
 
 router.include_router(

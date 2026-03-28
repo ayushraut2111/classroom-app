@@ -37,3 +37,5 @@ class StudentSchema(BaseModel):
 
 class GetStudentSchema(BaseModel):
     user_data: list[StudentSchema]
+    total: int
+    message: str
