@@ -6,7 +6,7 @@ from sqlalchemy.orm import Session
 from typing import Union
 from fastapi.responses import JSONResponse
 
-from users.utils import create_student, get_all_students
+from users.views import create_student, get_all_students
 
 router=APIRouter()
 
