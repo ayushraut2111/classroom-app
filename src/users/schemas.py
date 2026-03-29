@@ -39,3 +39,16 @@ class GetStudentSchema(BaseModel):
     user_data: list[StudentSchema]
     total: int
     message: str
+
+    class Config:
+        from_attributes = True
+
+
+class StudentCreateSchema(BaseModel):
+    name: str
+    age: int | None = None
+    phone: str
+    classroom_id: uuid.UUID
+
+    class Config:
+        from_attributes = True
